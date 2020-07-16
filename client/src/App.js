@@ -7,7 +7,7 @@ import './App.css';
 
 function App() {
   return (
-    <Router basename='/react-auth-ui/'>
+    <Router basename='/moments/'>
       <div className='App'>
         <div className='App__Aside'></div>
         <div className='App__Form'>
