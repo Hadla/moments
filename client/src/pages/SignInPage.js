@@ -3,7 +3,7 @@ import { HashRouter as Router, Route, Link, NavLink } from 'react-router-dom';
 
 import SignUpForm from '../components/SignUpForm';
 import SignInForm from '../components/SignInForm';
-import Home from './Home';
+// import Home from './Home';
 import Carousel from '../components/Carousel';
 
 import '../App.css';
