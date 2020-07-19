@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import CheckboxAlert from '../components/CheckboxAlert';
+import CheckboxAlert from './CheckboxAlert';
 
 class SignUpForm extends Component {
     constructor() {

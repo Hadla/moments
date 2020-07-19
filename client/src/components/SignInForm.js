@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { HashRouter as Router, Route, Link, NavLink, Switch } from 'react-router-dom';
+
+import Home from '../pages/Home';
+
 
 class SignInForm extends Component {
     constructor() {
@@ -33,6 +36,7 @@ class SignInForm extends Component {
 
     render() {
         return (
+            <Router>
         <div className="FormCenter">
             <form onSubmit={this.handleSubmit} className="FormFields" onSubmit={this.handleSubmit}>
             <div className="FormField">
@@ -46,10 +50,15 @@ class SignInForm extends Component {
               </div>
 
               <div className="FormField">
-                  <button className="FormField__Button mr-20">Sign In</button> <Link to="/" className="FormField__Link">Create an account</Link>
+              <button className="FormField__Button mr-20"><NavLink to='/home'>Sign In</NavLink></button>
+                  <Link to="/" className="FormField__Link">Create an account</Link>
               </div>
+              {/* <Switch>
+              <Route path='/home' component={Home} />
+              </Switch> */}
             </form>
           </div>
+          </Router>
         );
     }
 }
