@@ -1,15 +1,13 @@
-import React, { Component } from 'react';
-import { HashRouter as Router, Route, Link } from 'react-router-dom';
-
-import Home from '../pages/Home';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class SignInForm extends Component {
   constructor() {
     super();
 
     this.state = {
-      email: '',
-      password: '',
+      email: "",
+      password: "",
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -18,7 +16,7 @@ class SignInForm extends Component {
 
   handleChange(e) {
     let target = e.target;
-    let value = target.type === 'checkbox' ? target.checked : target.value;
+    let value = target.type === "checkbox" ? target.checked : target.value;
     let name = target.name;
 
     this.setState({
@@ -29,57 +27,54 @@ class SignInForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    console.log('The form was submitted with the following data:');
+    console.log("The form was submitted with the following data:");
     console.log(this.state);
   }
 
   render() {
     return (
-      <Router>
-        <div className='FormCenter'>
-          <form onSubmit={this.handleSubmit} className='FormFields' onSubmit={this.handleSubmit}>
-            <div className='FormField'>
-              <label className='FormField__Label' htmlFor='email'>
-                E-Mail Address
-              </label>
-              <input
-                type='email'
-                id='email'
-                className='FormField__Input'
-                placeholder='Enter your email'
-                name='email'
-                value={this.state.email}
-                onChange={this.handleChange}
-              />
-            </div>
+      <div className="FormCenter">
+        <form onSubmit={this.handleSubmit} className="FormFields">
+          <div className="FormField">
+            <label className="FormField__Label" htmlFor="email">
+              E-Mail Address
+            </label>
+            <input
+              type="email"
+              id="email"
+              className="FormField__Input"
+              placeholder="Enter your email"
+              name="email"
+              value={this.state.email}
+              onChange={this.handleChange}
+            />
+          </div>
 
-            <div className='FormField'>
-              <label className='FormField__Label' htmlFor='password'>
-                Password
-              </label>
-              <input
-                type='password'
-                id='password'
-                className='FormField__Input'
-                placeholder='Enter your password'
-                name='password'
-                value={this.state.password}
-                onChange={this.handleChange}
-              />
-            </div>
+          <div className="FormField">
+            <label className="FormField__Label" htmlFor="password">
+              Password
+            </label>
+            <input
+              type="password"
+              id="password"
+              className="FormField__Input"
+              placeholder="Enter your password"
+              name="password"
+              value={this.state.password}
+              onChange={this.handleChange}
+            />
+          </div>
 
-            <div className='FormField'>
-              <button className='FormField__Button mr-20'>
-                <Link to='/home'>Sign In</Link>
-              </button>
-              <Link to='/' className='FormField__Link'>
-                Create an account
-              </Link>
-            </div>
-            <Route path='/home' component={Home} />
-          </form>
-        </div>
-      </Router>
+          <div className="FormField">
+            <button className="FormField__Button mr-20">
+              <Link to="/">Sign In</Link>
+            </button>
+            <Link to="/sign-up" className="FormField__Link">
+              Create an account
+            </Link>
+          </div>
+        </form>
+      </div>
     );
   }
 }
