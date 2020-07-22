@@ -76,9 +76,7 @@ class SignInForm extends Component {
                 Create an account
               </Link>
             </div>
-            {/* <Switch>
-              <Route path='/home' component={Home} />
-              </Switch> */}
+            <Route path='/home' component={Home} />
           </form>
         </div>
       </Router>
