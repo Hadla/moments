@@ -2,6 +2,7 @@ import React from 'react';
 import Sidebar from 'react-sidebar';
 import '../style/sidebar.css';
 import logo from '../images/logo-white.png';
+import MenuIcon from '@material-ui/icons/Menu';
 
 class SidebarMenu extends React.Component {
   constructor(props) {
@@ -60,7 +61,9 @@ class SidebarMenu extends React.Component {
           },
         }}
       >
-        <button onClick={() => this.onSetSidebarOpen(true)}>Open sidebar</button>
+        <button className='menu-icon-button' onClick={() => this.onSetSidebarOpen(true)}>
+          <MenuIcon color='white' fontSize='medium' />
+        </button>
       </Sidebar>
     );
   }

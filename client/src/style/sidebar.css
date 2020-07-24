@@ -1,3 +1,16 @@
+:root {
+  --a-color: #99d6e0;
+  --b-color: #4261a3;
+}
+
 .sidebar-logo {
   width: 12em;
+}
+
+.menu-icon-button {
+  margin: 2em;
+  outline: none;
+  background: var(--a-color);
+  border: none;
+  border-radius: 10%;
 }
