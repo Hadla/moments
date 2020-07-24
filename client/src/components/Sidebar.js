@@ -1,6 +1,7 @@
 import React from 'react';
 import Sidebar from 'react-sidebar';
 import '../style/sidebar.css';
+import logo from '../images/logo-white.png';
 
 class SidebarMenu extends React.Component {
   constructor(props) {
@@ -19,20 +20,43 @@ class SidebarMenu extends React.Component {
     return (
       <Sidebar
         className='sidebar-sidebar'
-        sidebar={<b>Sidebar content</b>}
+        sidebar={<img className='sidebar-logo' src={logo} />}
         open={this.state.sidebarOpen}
         onSetOpen={this.onSetSidebarOpen}
         styles={{
           sidebar: {
-            background: 'white',
+            background: '#4261a3',
+            width: '14rem',
             zIndex: 2,
             position: 'absolute',
-            top: 0,
-            bottom: 0,
             transition: 'transform .3s ease-out',
             WebkitTransition: '-webkit-transform .3s ease-out',
             willChange: 'transform',
             overflowY: 'auto',
+          },
+          root: {
+            position: 'absolute',
+            overflow: 'hidden',
+          },
+          content: {
+            position: 'absolute',
+            overflowY: 'auto',
+            WebkitOverflowScrolling: 'touch',
+            transition: 'left .3s ease-out, right .3s ease-out',
+          },
+          overlay: {
+            zIndex: 1,
+            position: 'fixed',
+            opacity: 0,
+            visibility: 'hidden',
+            transition: 'opacity .3s ease-out, visibility .3s ease-out',
+            backgroundColor: 'rgba(0,0,0,.3)',
+          },
+          dragHandle: {
+            zIndex: 1,
+            position: 'fixed',
+            top: 0,
+            bottom: 0,
           },
         }}
       >
@@ -41,5 +65,7 @@ class SidebarMenu extends React.Component {
     );
   }
 }
+
+// https://www.npmjs.com/package/react-sidebar
 
 export default SidebarMenu;
