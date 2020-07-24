@@ -28,12 +28,21 @@
   margin-left: -50px;
 }
 
+.profile-name {
+  font-weight: 200;
+  font-size: 1.2em;
+}
+
 .sidebar-menu {
   margin-left: 15%;
   margin-top: 2em;
-  line-height: 0.3em;
+  line-height: 0.5em;
 }
-
+.menu-title {
+  font-weight: 400;
+  margin-top: 2.7em;
+  margin-bottom: 1.5em;
+}
 .menu-icon {
   display: flex;
   justify-content: center;
@@ -47,4 +56,5 @@
 }
 .menu-text {
   font-size: 1em;
+  font-weight: 350;
 }
