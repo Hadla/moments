@@ -4,11 +4,15 @@
 }
 
 .sidebar-content-root {
-  margin-left: 15%;
   font-size: 1em;
   color: white;
 }
 
+.profile-component {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .profile-image-circle {
   display: inline-block;
   position: relative;
@@ -18,9 +22,29 @@
   border-radius: 50%;
   border: var(--a-color) 0.2em solid;
 }
-
 .profile-image-circle .profile-image {
   width: auto;
   height: 100%;
   margin-left: -50px;
+}
+
+.sidebar-menu {
+  margin-left: 15%;
+  margin-top: 2em;
+  line-height: 0.3em;
+}
+
+.menu-icon {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.348em;
+  margin-right: 0.2em;
+}
+
+.menu-item {
+  display: flex;
+  flex-direction: row;
+}
+.menu-text {
+  font-size: 1em;
 }
