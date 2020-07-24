@@ -1,0 +1,26 @@
+:root {
+  --a-color: #99d6e0;
+  --b-color: #4261a3;
+}
+
+.sidebar-content-root {
+  margin-left: 15%;
+  font-size: 1em;
+  color: white;
+}
+
+.profile-image-circle {
+  display: inline-block;
+  position: relative;
+  width: 11em;
+  height: 11em;
+  overflow: hidden;
+  border-radius: 50%;
+  border: var(--a-color) 0.2em solid;
+}
+
+.profile-image-circle .profile-image {
+  width: auto;
+  height: 100%;
+  margin-left: -50px;
+}
