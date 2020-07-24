@@ -3,6 +3,7 @@ import Sidebar from 'react-sidebar';
 import '../style/sidebar.css';
 import logo from '../images/logo-white.png';
 import MenuIcon from '@material-ui/icons/Menu';
+import SidebarContent from './SidebarContent';
 
 class SidebarMenu extends React.Component {
   constructor(props) {
@@ -21,7 +22,12 @@ class SidebarMenu extends React.Component {
     return (
       <Sidebar
         sidebarClassName='sidebar-sidebar'
-        sidebar={<img className='sidebar-logo' src={logo} />}
+        sidebar={
+          <div>
+            <img className='sidebar-logo' src={logo} />
+            <SidebarContent />
+          </div>
+        }
         open={this.state.sidebarOpen}
         onSetOpen={this.onSetSidebarOpen}
       >
