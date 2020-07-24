@@ -20,46 +20,10 @@ class SidebarMenu extends React.Component {
   render() {
     return (
       <Sidebar
-        className='sidebar-sidebar'
+        sidebarClassName='sidebar-sidebar'
         sidebar={<img className='sidebar-logo' src={logo} />}
         open={this.state.sidebarOpen}
         onSetOpen={this.onSetSidebarOpen}
-        styles={{
-          sidebar: {
-            background: '#4261a3',
-            width: '14rem',
-            zIndex: 2,
-            position: 'absolute',
-            transition: 'transform .3s ease-out',
-            WebkitTransition: '-webkit-transform .3s ease-out',
-            willChange: 'transform',
-            overflowY: 'auto',
-          },
-          root: {
-            position: 'absolute',
-            overflow: 'hidden',
-          },
-          content: {
-            position: 'absolute',
-            overflowY: 'auto',
-            WebkitOverflowScrolling: 'touch',
-            transition: 'left .3s ease-out, right .3s ease-out',
-          },
-          overlay: {
-            zIndex: 1,
-            position: 'fixed',
-            opacity: 0,
-            visibility: 'hidden',
-            transition: 'opacity .3s ease-out, visibility .3s ease-out',
-            backgroundColor: 'rgba(0,0,0,.3)',
-          },
-          dragHandle: {
-            zIndex: 1,
-            position: 'fixed',
-            top: 0,
-            bottom: 0,
-          },
-        }}
       >
         <button className='menu-icon-button' onClick={() => this.onSetSidebarOpen(true)}>
           <MenuIcon color='white' fontSize='medium' />

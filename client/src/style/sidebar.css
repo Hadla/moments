@@ -1,10 +1,36 @@
 :root {
   --a-color: #99d6e0;
   --b-color: #4261a3;
+  overflow: hidden;
+}
+
+.sidebar-sidebar {
+  width: 20em;
+  background: #4261a3;
+  z-index: 2;
+  position: absolute;
+  overflow-y: auto;
+}
+
+.sidebar-sidebar .overlay {
+  z-index: 1;
+  position: fixed;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-out visibility 0.3s ease-out;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.sidebar-sidebar .dragHandle {
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  bottom: 0;
 }
 
 .sidebar-logo {
-  width: 12em;
+  width: 80%;
+  margin: 2em 10%;
 }
 
 .menu-icon-button {
