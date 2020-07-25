@@ -57,4 +57,6 @@
 .menu-text {
   font-size: 1em;
   font-weight: 350;
+  text-decoration: none;
+  color: white;
 }

@@ -1,0 +1,12 @@
+:root {
+  --a-color: #99d6e0;
+  --b-color: #4261a3;
+}
+
+.start-component {
+  margin: 5%;
+}
+
+.searchbox {
+  margin-left: 10%;
+}

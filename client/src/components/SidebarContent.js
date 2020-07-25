@@ -1,43 +1,65 @@
 import React from 'react';
-import '../style/sidebarContent.css';
-import profileImnage from '../images/profile-image.jpg';
 import SettingsIcon from '@material-ui/icons/Settings';
 import MomentsIcon from '@material-ui/icons/PhotoLibrary';
 import AddMomentIcon from '@material-ui/icons/AddAPhoto';
 import ShareIcon from '@material-ui/icons/Share';
+import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
+
+import '../style/sidebarContent.css';
+import profileImnage from '../images/profile-image.jpg';
+import AddMoment from '../pages/AddMoment';
+import MyMoments from '../pages/MyMoments';
+import SharedMoments from '../pages/SharedMoments';
+import Settings from '../pages/Settings';
 
 class sidebarContent extends React.Component {
   render() {
     return (
-      <div className='sidebar-content-root'>
-        <div className='profile-component'>
-          <div className='profile-image-circle'>
-            <img className='profile-image' src={profileImnage} />
+      <BrowserRouter>
+        <div className='sidebar-content-root'>
+          <div className='profile-component'>
+            <div className='profile-image-circle'>
+              <img className='profile-image' src={profileImnage} />
+            </div>
+            <div className='profile-name-parent'>
+              <p className='profile-name'>Jeanette Doeson</p>
+            </div>
           </div>
-          <div className='profile-name-parent'>
-            <p className='profile-name'>Jeanette Doeson</p>
+          <div className='sidebar-menu'>
+            <h3 className='menu-title'>Menu</h3>
+            <div className='menu-item'>
+              <AddMomentIcon fontSize='small' className='menu-icon' />
+              <Link to='/add-moment'>
+                <p className='menu-text'>Add Moment</p>
+              </Link>
+            </div>
+            <div className='menu-item'>
+              <MomentsIcon fontSize='small' className='menu-icon' />
+              <Link to='my-moments'>
+                <p className='menu-text'>My Moments</p>
+              </Link>
+            </div>
+            <div className='menu-item'>
+              <ShareIcon fontSize='small' className='menu-icon' />
+              <Link to='shared-moments'>
+                <p className='menu-text'>Shared Moments</p>
+              </Link>
+            </div>
+            <div className='menu-item'>
+              <SettingsIcon fontSize='small' className='menu-icon' />
+              <Link to='settings'>
+                <p className='menu-text'>Settings</p>
+              </Link>
+            </div>
           </div>
         </div>
-        <div className='sidebar-menu'>
-          <h3 className='menu-title'>Menu</h3>
-          <div className='menu-item'>
-            <AddMomentIcon fontSize='small' className='menu-icon' />
-            <p className='menu-text'>Add Moment</p>
-          </div>
-          <div className='menu-item'>
-            <MomentsIcon fontSize='small' className='menu-icon' />
-            <p className='menu-text'>My Moments</p>
-          </div>
-          <div className='menu-item'>
-            <ShareIcon fontSize='small' className='menu-icon' />
-            <p className='menu-text'>Shared Moments</p>
-          </div>
-          <div className='menu-item'>
-            <SettingsIcon fontSize='small' className='menu-icon' />
-            <p className='menu-text'>Settings</p>
-          </div>
-        </div>
-      </div>
+        <Switch>
+          <Route exact path='/add-moment' component={AddMoment} />
+          <Route exact path='/my-moments' component={MyMoments} />
+          <Route exact path='/shared-moments' component={SharedMoments} />
+          <Route exact path='/settings' component={Settings} />
+        </Switch>
+      </BrowserRouter>
     );
   }
 }
