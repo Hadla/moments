@@ -7,6 +7,7 @@ class Start extends React.Component {
     return (
       <div className='start-component'>
         <p>Start</p>
+        <button onClick={() => console.log('Click')}>Klicka här!</button>
       </div>
     );
   }

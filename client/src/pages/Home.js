@@ -5,8 +5,8 @@ import Start from '../components/Start';
 function Home() {
   return (
     <div>
-      <Sidebar />
       <Start />
+      <Sidebar />
       <p>Home</p>
     </div>
   );
