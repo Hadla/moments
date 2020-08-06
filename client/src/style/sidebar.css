@@ -1,34 +1,23 @@
 :root {
   --a-color: #99d6e0;
   --b-color: #4261a3;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  overflow: hidden;
 }
 
 .sidebar-sidebar {
+  position: absolute;
   width: 20em;
   background: #4261a3;
+  transition: margin-left 0.5s ease-in-out;
+  height: 100vh;
 }
 
-/* .sidebar-sidebar .overlay {
-  z-index: 1;
-  position: fixed;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease-out visibility 0.3s ease-out;
-  background-color: rgba(0, 0, 0, 0.3);
+.sidebar-sidebar.hidden {
+  margin-left: -20em;
 }
 
-.sidebar-sidebar .dragHandle {
-  z-index: 1;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-} */
+.sidebar-sidebar.open {
+  margin-left: 0em;
+}
 
 .sidebar-logo {
   width: 80%;

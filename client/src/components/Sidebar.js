@@ -1,84 +1,48 @@
 import React from 'react';
-import Sidebar from 'react-sidebar';
 import '../style/sidebar.css';
 import logo from '../images/logo-white.png';
 import MenuIcon from '@material-ui/icons/Menu';
 import SidebarContent from './SidebarContent';
 
-class SidebarMenu extends React.Component {
+class Sidebar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      sidebarOpen: true,
+      open: true,
     };
-    this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
   }
 
-  onSetSidebarOpen(open) {
-    this.setState({ sidebarOpen: open });
+  toggleSidebar() {
+    console.log('sdkjhs');
+    if (this.state.open) {
+      this.sidebarRef.classList.add('hidden');
+      this.sidebarRef.classList.remove('open');
+    } else {
+      this.sidebarRef.classList.add('open');
+      this.sidebarRef.classList.remove('hidden');
+    }
+    this.setState({ ...this.state, open: !this.state.open });
+  }
+
+  componentDidMount() {
+    this.sidebarRef = window.document.getElementById('sidebar');
   }
 
   render() {
     return (
-      <Sidebar
-        sidebarClassName='sidebar-sidebar'
-        sidebar={
-          <div>
-            <img className='sidebar-logo' src={logo} />
-            <SidebarContent />
-          </div>
-        }
-        open={this.state.sidebarOpen}
-        onSetOpen={this.onSetSidebarOpen}
-        style={{
-          sidebar: {
-            zIndex: 2,
-            position: 'absolute',
-            top: 0,
-            bottom: 0,
-            transition: 'transform .3s ease-out',
-            WebkitTransition: '-webkit-transform .3s ease-out',
-            willChange: 'transform',
-            overflowY: 'auto',
-          },
-          content: {
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            overflowY: 'auto',
-            WebkitOverflowScrolling: 'touch',
-            transition: 'left .3s ease-out, right .3s ease-out',
-          },
-          overlay: {
-            zIndex: 1,
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            opacity: 0,
-            visibility: 'hidden',
-            transition: 'opacity .3s ease-out, visibility .3s ease-out',
-            backgroundColor: 'rgba(0,0,0,.3)',
-          },
-          dragHandle: {
-            zIndex: 1,
-            position: 'fixed',
-            top: 0,
-            bottom: 0,
-          },
-        }}
-      >
-        <button className='menu-icon-button' onClick={() => this.onSetSidebarOpen(true)}>
-          <MenuIcon className='menu-icon' fontSize='large' />
+      <div id='sidebar' className='sidebar-sidebar'>
+        <button
+          className='close-button'
+          onClick={() => {
+            this.toggleSidebar();
+          }}
+        >
+          Close
         </button>
-      </Sidebar>
+        <p>Im Sidebar</p>
+      </div>
     );
   }
 }
 
-// https://www.npmjs.com/package/react-sidebar
-
-export default SidebarMenu;
+export default Sidebar;

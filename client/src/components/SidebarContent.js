@@ -11,8 +11,30 @@ import AddMoment from '../pages/AddMoment';
 import MyMoments from '../pages/MyMoments';
 import SharedMoments from '../pages/SharedMoments';
 import Settings from '../pages/Settings';
+import LogoutButton from '../components/LogoutButton';
+import firebaseApp from '../firebase';
 
 class sidebarContent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: '',
+    };
+  }
+
+  componentDidMount() {
+    let uid = firebaseApp.auth().currentUser.uid;
+    firebaseApp
+      .database()
+      .ref(`users/${uid}/name`)
+      .once('value')
+      .then((snap) => {
+        console.log('CALLBACK KÖRS:', snap.val());
+
+        this.setState({ ...this.state, name: snap.val() });
+      });
+  }
+
   render() {
     return (
       <BrowserRouter>
@@ -22,7 +44,7 @@ class sidebarContent extends React.Component {
               <img className='profile-image' src={profileImnage} />
             </div>
             <div className='profile-name-parent'>
-              <p className='profile-name'>Jeanette Doeson</p>
+              <p className='profile-name'>{this.state.name}</p>
             </div>
           </div>
           <div className='sidebar-menu'>
@@ -50,6 +72,9 @@ class sidebarContent extends React.Component {
               <Link to='settings'>
                 <p className='menu-text'>Settings</p>
               </Link>
+            </div>
+            <div className='menu-item'>
+              <LogoutButton />
             </div>
           </div>
         </div>
