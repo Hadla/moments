@@ -30,16 +30,27 @@ class Sidebar extends React.Component {
 
   render() {
     return (
-      <div id='sidebar' className='sidebar-sidebar'>
-        <button
-          className='close-button'
-          onClick={() => {
-            this.toggleSidebar();
-          }}
-        >
-          Close
-        </button>
-        <p>Im Sidebar</p>
+      <div>
+        <div id='sidebar' className='sidebar-sidebar'>
+          <SidebarContent />
+        </div>
+        <div className='sidebar-content'>
+          <div className='button-menu'>
+            <div className='button-item'>
+              <button
+                className='close-button'
+                onClick={() => {
+                  this.toggleSidebar();
+                }}
+              >
+                Close
+              </button>
+            </div>
+            <div className='button-item'>
+              <button className='close-button'>Log out</button>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

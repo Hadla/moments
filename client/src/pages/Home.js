@@ -9,7 +9,7 @@ function Home() {
   return (
     <div>
       <Sidebar />
-      <Link to='sign-in'>Welcome</Link>
+      <Link to='/add-moment'>Add a moment</Link>
     </div>
   );
 }

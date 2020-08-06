@@ -1,0 +1,35 @@
+.main-content {
+  padding-left: 2em;
+}
+
+.main-page {
+  display: flex;
+  flex-direction: row;
+}
+
+.collection-previews-container {
+  background-color: red;
+  margin: 1em;
+  display: flex;
+  flex-direction: row;
+}
+
+.collection-preview {
+  width: 10em;
+  max-height: 10em;
+  display: flex;
+  flex-direction: column;
+  background-color: green;
+  border-radius: 5%;
+  margin-right: 1em;
+  margin: 1em;
+}
+.collection-cover {
+  width: 10em;
+  height: 8em;
+}
+
+.collection-preview-container {
+  display: flex;
+  flex-direction: row;
+}

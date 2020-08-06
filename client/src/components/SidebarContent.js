@@ -37,54 +37,46 @@ class sidebarContent extends React.Component {
 
   render() {
     return (
-      <BrowserRouter>
-        <div className='sidebar-content-root'>
-          <div className='profile-component'>
-            <div className='profile-image-circle'>
-              <img className='profile-image' src={profileImnage} />
-            </div>
-            <div className='profile-name-parent'>
-              <p className='profile-name'>{this.state.name}</p>
-            </div>
+      <div className='sidebar-content-root'>
+        <div className='profile-component'>
+          <div className='profile-image-circle'>
+            <img className='profile-image' src={profileImnage} />
           </div>
-          <div className='sidebar-menu'>
-            <h3 className='menu-title'>Menu</h3>
-            <div className='menu-item'>
-              <AddMomentIcon fontSize='small' className='menu-icon' />
-              <Link to='/add-moment'>
-                <p className='menu-text'>Add Moment</p>
-              </Link>
-            </div>
-            <div className='menu-item'>
-              <MomentsIcon fontSize='small' className='menu-icon' />
-              <Link to='my-moments'>
-                <p className='menu-text'>My Moments</p>
-              </Link>
-            </div>
-            <div className='menu-item'>
-              <ShareIcon fontSize='small' className='menu-icon' />
-              <Link to='shared-moments'>
-                <p className='menu-text'>Shared Moments</p>
-              </Link>
-            </div>
-            <div className='menu-item'>
-              <SettingsIcon fontSize='small' className='menu-icon' />
-              <Link to='settings'>
-                <p className='menu-text'>Settings</p>
-              </Link>
-            </div>
-            <div className='menu-item'>
-              <LogoutButton />
-            </div>
+          <div className='profile-name-parent'>
+            <p className='profile-name'>{this.state.name}</p>
           </div>
         </div>
-        <Switch>
-          <Route exact path='/add-moment' component={AddMoment} />
-          <Route exact path='/my-moments' component={MyMoments} />
-          <Route exact path='/shared-moments' component={SharedMoments} />
-          <Route exact path='/settings' component={Settings} />
-        </Switch>
-      </BrowserRouter>
+        <div className='sidebar-menu'>
+          <h3 className='menu-title'>Menu</h3>
+          <div className='menu-item'>
+            <AddMomentIcon fontSize='small' className='menu-icon' />
+            <Link to='/add-moment'>
+              <p className='menu-text'>Add Moment</p>
+            </Link>
+          </div>
+          <div className='menu-item'>
+            <MomentsIcon fontSize='small' className='menu-icon' />
+            <Link to='my-moments'>
+              <p className='menu-text'>My Moments</p>
+            </Link>
+          </div>
+          <div className='menu-item'>
+            <ShareIcon fontSize='small' className='menu-icon' />
+            <Link to='shared-moments'>
+              <p className='menu-text'>Shared Moments</p>
+            </Link>
+          </div>
+          <div className='menu-item'>
+            <SettingsIcon fontSize='small' className='menu-icon' />
+            <Link to='settings'>
+              <p className='menu-text'>Settings</p>
+            </Link>
+          </div>
+          <div className='menu-item'>
+            <LogoutButton />
+          </div>
+        </div>
+      </div>
     );
   }
 }

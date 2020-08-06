@@ -3,12 +3,32 @@
   --b-color: #4261a3;
 }
 
+.sidebar-content {
+  z-index: 1;
+  width: 2em;
+  display: flex;
+  flex-direction: row;
+}
+
+.button-menu {
+  z-index: 2;
+  background: #37518a;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+.button-item {
+  background: #293d69;
+  height: 4em;
+  margin-top: 0.5em;
+}
 .sidebar-sidebar {
-  position: absolute;
-  width: 20em;
+  padding-left: 2em;
+  height: 100vh;
+  width: 16em;
   background: #4261a3;
   transition: margin-left 0.5s ease-in-out;
-  height: 100vh;
+  position: absolute;
 }
 
 .sidebar-sidebar.hidden {

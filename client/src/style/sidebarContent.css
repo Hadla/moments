@@ -4,6 +4,7 @@
 }
 
 .sidebar-content-root {
+  padding-top: 2em;
   font-size: 1em;
   color: white;
 }
@@ -16,8 +17,8 @@
 .profile-image-circle {
   display: inline-block;
   position: relative;
-  width: 11em;
-  height: 11em;
+  width: 7em;
+  height: 7em;
   overflow: hidden;
   border-radius: 50%;
   border: var(--a-color) 0.2em solid;
