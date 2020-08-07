@@ -1,8 +1,8 @@
 import React from 'react';
 import '../style/sidebar.css';
-import logo from '../images/logo-white.png';
 import MenuIcon from '@material-ui/icons/Menu';
 import SidebarContent from './SidebarContent';
+import SignOutIcon from '@material-ui/icons/ExitToApp';
 
 class Sidebar extends React.Component {
   constructor(props) {
@@ -38,16 +38,19 @@ class Sidebar extends React.Component {
           <div className='button-menu'>
             <div className='button-item'>
               <button
-                className='close-button'
+                className='button-item-button'
                 onClick={() => {
                   this.toggleSidebar();
                 }}
               >
-                Close
+                <MenuIcon />
               </button>
             </div>
             <div className='button-item'>
-              <button className='close-button'>Log out</button>
+              <button className='button-item-button'>
+                <SignOutIcon />
+                Signout
+              </button>
             </div>
           </div>
         </div>

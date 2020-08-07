@@ -16,16 +16,27 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
+  padding-top: 1em;
 }
 .button-item {
-  background: #293d69;
-  height: 4em;
-  margin-top: 0.5em;
+  height: 3em;
+  margin: 0.5em;
 }
+.button-item-button {
+  background: none;
+  color: white;
+  border: none;
+  padding: 0;
+  font-size: 0.8em;
+  cursor: pointer;
+  outline: inherit;
+  width: 3.3em;
+}
+
 .sidebar-sidebar {
   padding-left: 2em;
   height: 100vh;
-  width: 16em;
+  width: 18em;
   background: #4261a3;
   transition: margin-left 0.5s ease-in-out;
   position: absolute;
@@ -37,11 +48,6 @@
 
 .sidebar-sidebar.open {
   margin-left: 0em;
-}
-
-.sidebar-logo {
-  width: 80%;
-  margin: 2em 10%;
 }
 
 .menu-icon-button {

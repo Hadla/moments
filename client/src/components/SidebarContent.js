@@ -4,6 +4,7 @@ import MomentsIcon from '@material-ui/icons/PhotoLibrary';
 import AddMomentIcon from '@material-ui/icons/AddAPhoto';
 import ShareIcon from '@material-ui/icons/Share';
 import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
+import logo from '../images/logo-white.png';
 
 import '../style/sidebarContent.css';
 import profileImnage from '../images/profile-image.jpg';
@@ -38,6 +39,7 @@ class sidebarContent extends React.Component {
   render() {
     return (
       <div className='sidebar-content-root'>
+        <img className='sidebar-logo' src={logo} />
         <div className='profile-component'>
           <div className='profile-image-circle'>
             <img className='profile-image' src={profileImnage} />

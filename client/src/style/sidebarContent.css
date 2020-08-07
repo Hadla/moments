@@ -4,9 +4,14 @@
 }
 
 .sidebar-content-root {
-  padding-top: 2em;
+  padding-top: 1em;
   font-size: 1em;
   color: white;
+}
+
+.sidebar-logo {
+  width: 13em;
+  margin: 2em;
 }
 
 .profile-component {
@@ -42,7 +47,7 @@
 .menu-title {
   font-weight: 400;
   margin-top: 2.7em;
-  margin-bottom: 1.5em;
+  margin-bottom: 1em;
 }
 .menu-icon {
   display: flex;
