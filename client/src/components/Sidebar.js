@@ -3,6 +3,8 @@ import '../style/sidebar.css';
 import MenuIcon from '@material-ui/icons/Menu';
 import SidebarContent from './SidebarContent';
 import SignOutIcon from '@material-ui/icons/ExitToApp';
+import { Link } from 'react-router-dom';
+import logoSmall from '../images/logo-small.png';
 
 class Sidebar extends React.Component {
   constructor(props) {
@@ -37,18 +39,23 @@ class Sidebar extends React.Component {
         <div className='sidebar-content'>
           <div className='button-menu'>
             <div className='button-item'>
+              <Link to='/home'>
+                <img className='logo-home-button' src={logoSmall} />
+              </Link>
+            </div>
+            <div className='button-item'>
               <button
                 className='button-item-button'
                 onClick={() => {
                   this.toggleSidebar();
                 }}
               >
-                <MenuIcon />
+                <MenuIcon className='button-menu-icon' fontSize='large' />
               </button>
             </div>
             <div className='button-item'>
               <button className='button-item-button'>
-                <SignOutIcon />
+                <SignOutIcon className='button-menu-icon' fontSize='large' />
                 Signout
               </button>
             </div>

@@ -30,10 +30,10 @@ class AddMoment extends React.Component {
 
   render() {
     return (
-      <div className='main-page'>
+      <div className='main-page-add'>
         <Sidebar />
 
-        <div className='main-content'>
+        <div className='main-content-add'>
           <div className='info-container'>
             <img className='get-started-image' src={getStartedImage} />
             <p className='text-header'>Get started and create some Moments!</p>

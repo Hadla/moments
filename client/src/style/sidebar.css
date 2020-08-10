@@ -19,6 +19,9 @@
   height: 100vh;
   padding-top: 1em;
 }
+.logo-home-button {
+  width: 3.5em;
+}
 .button-item {
   height: 3em;
   margin: 0.5em;
@@ -31,7 +34,10 @@
   font-size: 0.8em;
   cursor: pointer;
   outline: inherit;
-  width: 3.3em;
+  width: 3.8em;
+}
+.button-menu-icon {
+  padding-left: 3px;
 }
 
 .sidebar-sidebar {
