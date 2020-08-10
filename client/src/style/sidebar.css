@@ -1,6 +1,7 @@
 :root {
   --a-color: #99d6e0;
   --b-color: #4261a3;
+  --c-color: #37518a;
 }
 
 .sidebar-content {
@@ -12,7 +13,7 @@
 
 .button-menu {
   z-index: 2;
-  background: #37518a;
+  background: var(--c-color);
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -37,7 +38,7 @@
   padding-left: 2em;
   height: 100vh;
   width: 18em;
-  background: #4261a3;
+  background: var(--b-color);
   transition: margin-left 0.5s ease-in-out;
   position: absolute;
 }
