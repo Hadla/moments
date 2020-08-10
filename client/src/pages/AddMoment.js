@@ -2,6 +2,8 @@ import React from 'react';
 import Sidebar from '../components/Sidebar';
 import '../style/addMoment.css';
 import MomentsCollections from '../components/MomentsCollections';
+import getStartedImage from '../images/get-started-image.jpg';
+import { Link } from 'react-router-dom';
 
 class AddMoment extends React.Component {
   constructor(props) {
@@ -11,8 +13,8 @@ class AddMoment extends React.Component {
     };
     this.testCol = [
       {
-        coverImgUrl: 'https://firstcamp.fra1.digitaloceanspaces.com/public/2018/03/torekov_kust.jpg',
-        name: 'Båstad 2020',
+        coverImgUrl: 'https://pinchofyum.com/wp-content/uploads/2014/01/jalapeno-lime-soup-1.jpg',
+        name: 'Food!',
       },
       {
         coverImgUrl:
@@ -20,9 +22,8 @@ class AddMoment extends React.Component {
         name: 'Family',
       },
       {
-        coverImgUrl:
-          'https://lh3.googleusercontent.com/proxy/JDazeJaruyCGEQLO9zG0MBFonD4GbLyBGmbiYAwrqMs195On4WrCJ7PmgH3xF4gP2t8OY4ysHtT-OLA-DRlBUtDSONMCIpVmZILN_XLaUTVDf9ABsC2K4Gpyy6vh2BBGiTOc',
-        name: 'Africa',
+        coverImgUrl: 'https://www.thewanderinglens.com/wp-content/uploads/2018/01/header.jpg',
+        name: 'Paris',
       },
     ];
   }
@@ -34,10 +35,12 @@ class AddMoment extends React.Component {
 
         <div className='main-content'>
           <div className='info-container'>
-            <img />
+            <img className='get-started-image' src={getStartedImage} />
             <p className='text-header'>Get started and create some Moments!</p>
             <p className='text-text'>A picture speaks more than a thousand words. Tell your story!</p>
-            <button className='get-started-btn'>Get started</button>
+            <Link to='/create-collection'>
+              <button className='get-started-btn'>Get started</button>
+            </Link>
           </div>
           <div className='collection-preview-container'>
             <MomentsCollections collections={this.testCol} />

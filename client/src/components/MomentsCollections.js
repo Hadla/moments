@@ -7,7 +7,9 @@ class MomentsCollections extends React.Component {
   collectionItem(collection) {
     return (
       <div className='collection-preview'>
-        <img className='collection-cover' src={collection.coverImgUrl} />
+        <div className='collection-cover-container'>
+          <img className='collection-cover' src={collection.coverImgUrl} />
+        </div>
         <p className='collection-name'>{collection.name}</p>
       </div>
     );
