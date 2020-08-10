@@ -1,0 +1,26 @@
+:root {
+  --a-color: #99d6e0;
+  --b-color: #4261a3;
+  --c-color: #37518a;
+}
+
+.RMG-card-containter {
+  margin-left: 2em;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.RMG-card {
+  margin: 5px;
+}
+.RMG-img-container {
+}
+.RMG-img {
+  width: 200px;
+  max-height: 100%;
+  border-radius: 5px;
+}
+.RMG-col-name {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
