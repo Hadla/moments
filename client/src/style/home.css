@@ -1,0 +1,40 @@
+:root {
+  --a-color: #99d6e0;
+  --b-color: #4261a3;
+  --c-color: #37518a;
+}
+
+.welcome-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.welcome-msg {
+  padding-top: 1em;
+  font-size: 3.5em;
+  font-weight: 500;
+  margin: 15px;
+  color: var(--c-color);
+}
+.welcome-msg-btn {
+  margin: 2em;
+  height: 2em;
+  width: 10em;
+  border: none;
+  background-color: var(--c-color);
+  border-radius: 5px;
+  color: white;
+  font-size: 1.8em;
+}
+
+.main-content-home {
+  margin-top: 2em;
+  padding-left: 2em;
+
+  width: 100%;
+}
+.main-page-home {
+  display: flex;
+  flex-direction: row;
+}
