@@ -10,7 +10,11 @@
   flex-direction: row;
   flex-wrap: wrap;
 }
+.RMG-card:hover {
+  transform: scale(1.05);
+}
 .RMG-card {
+  transition: transform 1s;
   margin: 5px;
 }
 .RMG-img-container {
