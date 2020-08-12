@@ -11,16 +11,16 @@ import defaultProfileImg from '../images/default-profile-image.png';
 import '../style/sidebarContent.css';
 import LogoutButton from '../components/LogoutButton';
 import firebaseApp from '../firebase';
+import { connect } from 'react-redux';
 
 class sidebarContent extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      name: '',
-    };
+    this.state = {};
   }
 
   componentDidMount() {
+    /*
     let uid = firebaseApp.auth().currentUser.uid;
     firebaseApp
       .database()
@@ -31,6 +31,7 @@ class sidebarContent extends React.Component {
 
         this.setState({ ...this.state, name: snap.val() });
       });
+  */
   }
 
   render() {
@@ -42,7 +43,7 @@ class sidebarContent extends React.Component {
             <img className='profile-image' src={defaultProfileImg} />
           </div>
           <div className='profile-name-parent'>
-            <p className='profile-name'>{this.state.name}</p>
+            <p className='profile-name'>{this.props.userInfo.name}</p>
           </div>
         </div>
         <div className='sidebar-menu'>
@@ -86,4 +87,8 @@ class sidebarContent extends React.Component {
   }
 }
 
-export default sidebarContent;
+const mapStateToProps = (state) => {
+  return { userInfo: state.userInfo };
+};
+
+export default connect(mapStateToProps)(sidebarContent);

@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import firebaseApp from '../firebase';
 import '../style/home.css';
 import RandomMomentsGallery from '../components/RandomMomentsGallery';
+import { connect } from 'react-redux';
 
 class Home extends React.Component {
   constructor(props) {
@@ -72,26 +73,14 @@ class Home extends React.Component {
     ];
   }
 
-  componentDidMount() {
-    let uid = firebaseApp.auth().currentUser.uid;
-    firebaseApp
-      .database()
-      .ref(`users/${uid}/name`)
-      .once('value')
-      .then((snap) => {
-        console.log('CALLBACK KÖRS:', snap.val());
-
-        this.setState({ ...this.state, name: snap.val() });
-      });
-  }
-
   render() {
+    console.log(this.props);
     return (
       <div className='main-page-home'>
         <Sidebar />
         <div className='main-content-home'>
           <div className='welcome-header'>
-            <p className='welcome-msg'>Welcome {this.state.name}!</p>
+            <p className='welcome-msg'>Welcome {}!</p>
             <button className='welcome-msg-btn'>Let's get started</button>
           </div>
           <div>
@@ -102,4 +91,9 @@ class Home extends React.Component {
     );
   }
 }
-export default Home;
+
+const mapStateToProps = (state) => {
+  return { userInfo: state.userInfo };
+};
+
+export default connect(mapStateToProps, null)(Home);
