@@ -53,7 +53,7 @@ class createCollection extends React.Component {
         <Sidebar />
         <div className='main-content-home CC'>
           <div className='form-container'>
-            <p className='title-CC'>Add you collection!</p>
+            <p className='title-CC'>Create a collection</p>
             <input
               className='input-field-CC name'
               placeholder='Name of Collection...'
@@ -65,6 +65,7 @@ class createCollection extends React.Component {
               onChange={(e) => this.setState({ colDesc: e.target.value })}
             />
             <input
+              className='upload-file-btn-CC'
               type='file'
               accept='image/png image/jpeg'
               id='image-file'

@@ -6,14 +6,22 @@
 
 .main-content-home.CC {
   padding: 3em;
-}
-
-.main-page-home.CC {
+  display: flex;
+  justify-content: center;
+  background-color: var(--c-color);
+  margin-left: 20em;
+  margin-right: 20em;
+  border-radius: 5px;
 }
 
 .form-container {
   display: flex;
   flex-direction: column;
+}
+.title-CC {
+  font-weight: 500;
+  font-size: 2em;
+  color: rgb(233, 232, 232);
 }
 .input-field-CC {
   height: 2.2em;
@@ -22,9 +30,22 @@
   width: 35em;
   padding: 0.5em;
 }
+.upload-file-btn-CC {
+  background: white;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+.form-container > input {
+  margin-bottom: 1em;
+}
 .add-btn-CC {
-  background: var(--c-color);
-  color: white;
+  margin-top: 5em;
+  background: var(--a-color);
+  color: black;
   height: 2em;
   width: 10em;
   padding-left: 1em;
