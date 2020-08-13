@@ -10,3 +10,28 @@
 
 .main-page-home.CC {
 }
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+.input-field-CC {
+  height: 2.2em;
+  border-radius: 5px;
+  font-size: 1em;
+  width: 35em;
+  padding: 0.5em;
+}
+.add-btn-CC {
+  background: var(--c-color);
+  color: white;
+  height: 2em;
+  width: 10em;
+  padding-left: 1em;
+  padding-right: 1em;
+  border: none;
+  border-radius: 5px;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}

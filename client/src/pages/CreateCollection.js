@@ -41,8 +41,8 @@ class createCollection extends React.Component {
 
   selectedImages() {
     return (
-      <div className='selected-image'>
-        <img src={this.state.imageData} />
+      <div className='selected-image-container'>
+        <img className='selected-image' src={this.state.imageData} />
       </div>
     );
   }
@@ -53,9 +53,17 @@ class createCollection extends React.Component {
         <Sidebar />
         <div className='main-content-home CC'>
           <div className='form-container'>
-            <p>Add you collection!</p>
-            <input placeholder='Name of Collection...' onChange={(e) => this.setState({ colName: e.target.value })} />
-            <input placeholder='Description...' onChange={(e) => this.setState({ colDesc: e.target.value })} />
+            <p className='title-CC'>Add you collection!</p>
+            <input
+              className='input-field-CC name'
+              placeholder='Name of Collection...'
+              onChange={(e) => this.setState({ colName: e.target.value })}
+            />
+            <input
+              className='input-field-CC description'
+              placeholder='Description...'
+              onChange={(e) => this.setState({ colDesc: e.target.value })}
+            />
             <input
               type='file'
               accept='image/png image/jpeg'
@@ -66,11 +74,12 @@ class createCollection extends React.Component {
               }.bind(this)}
             />
             <button
+              className='add-btn-CC'
               onClick={function () {
                 this.submitForm();
               }.bind(this)}
             >
-              Confirm
+              Add Collection
             </button>
             {this.selectedImages()}
           </div>
