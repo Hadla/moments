@@ -74,6 +74,8 @@ class createCollection extends React.Component {
                 this.onFilePick();
               }.bind(this)}
             />
+            {this.selectedImages()}
+
             <button
               className='add-btn-CC'
               onClick={function () {
@@ -82,7 +84,6 @@ class createCollection extends React.Component {
             >
               Add Collection
             </button>
-            {this.selectedImages()}
           </div>
         </div>
       </div>
