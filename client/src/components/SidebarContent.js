@@ -4,7 +4,8 @@ import MomentsIcon from '@material-ui/icons/PhotoLibrary';
 import AddMomentIcon from '@material-ui/icons/AddAPhoto';
 import HomeIcon from '@material-ui/icons/Home';
 import ShareIcon from '@material-ui/icons/Share';
-import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
+
+import { Link } from 'react-router-dom';
 import logo from '../images/logo-white.png';
 import defaultProfileImg from '../images/default-profile-image.png';
 
@@ -79,7 +80,7 @@ class sidebarContent extends React.Component {
             </Link>
           </div>
           <div className='menu-item'>
-            <LogoutButton />
+            <LogoutButton className='log-out-btn-SC' />
           </div>
         </div>
       </div>

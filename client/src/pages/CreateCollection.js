@@ -4,6 +4,7 @@ import '../style/createCollection.css';
 import { collectionActions, createNewCollectionAction } from '../actions';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import UploadIcon from '@material-ui/icons/Publish';
 
 class createCollection extends React.Component {
   constructor(props) {
@@ -65,7 +66,7 @@ class createCollection extends React.Component {
               onChange={(e) => this.setState({ colDesc: e.target.value })}
             />
             <input
-              className='upload-file-btn-CC'
+              className='input-file'
               type='file'
               accept='image/png image/jpeg'
               id='image-file'
@@ -74,15 +75,21 @@ class createCollection extends React.Component {
                 this.onFilePick();
               }.bind(this)}
             />
+            <div className='upload-file-btn-CC'>
+              <label className='upload-file-lable-CC' for='image-file'>
+                Choose a file
+                <UploadIcon className='upload-icon' fontSize='small' />
+              </label>
+            </div>
             {this.selectedImages()}
 
             <button
-              className='add-btn-CC'
+              className='save-btn-CC'
               onClick={function () {
                 this.submitForm();
               }.bind(this)}
             >
-              Add Collection
+              Save
             </button>
           </div>
         </div>
