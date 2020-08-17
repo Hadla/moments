@@ -8,3 +8,4 @@ This application comes in handy when e.g. you want to show photos from a trip. I
 ![Sign in page](/client/src/images/readme/Sign-in.png)
 ![Sign up page](/client/src/images/readme/Sign-up.png)
 ![Add moments page](/client/src/images/readme/Add-moments-page.png)
+![Create collection page](/client/src/images/readme/create-collection.png)
