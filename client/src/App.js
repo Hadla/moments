@@ -19,7 +19,7 @@ class App extends Component {
   }
   componentDidMount() {
     firebaseApp.auth().onAuthStateChanged((state) => {
-      /*console.log(state);
+      console.log(state);
       this.props.store.dispatch({
         type: userActions.SET_LOGIN_INFO_ACTION,
         payload: {
@@ -27,8 +27,7 @@ class App extends Component {
           userId: state.uid,
         },
       });
-      */
-      /*
+
       firebaseApp
         .database()
         .ref(`users/${state.uid}`)
@@ -41,7 +40,7 @@ class App extends Component {
             },
           });
         });
-        */
+
       this.props.store.dispatch(subscribeToCollectionsAction());
     });
   }

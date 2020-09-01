@@ -4,13 +4,18 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
-import { userReducer, loginReducer, collectionReducer } from './reducers';
+import { userReducer, loginReducer, collectionReducer, toggleSidebar } from './reducers';
 import { Provider } from 'react-redux';
 import { userActions, collectionActions, subscribeToCollectionsAction } from './actions';
 import firebaseApp from './firebase';
 import thunk from 'redux-thunk';
 const store = createStore(
-  combineReducers({ userInfo: userReducer, loginInfo: loginReducer, collectionInfo: collectionReducer }),
+  combineReducers({
+    userInfo: userReducer,
+    loginInfo: loginReducer,
+    collectionInfo: collectionReducer,
+    settings: toggleSidebar,
+  }),
   applyMiddleware(thunk)
 );
 

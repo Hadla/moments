@@ -80,7 +80,7 @@ class Home extends React.Component {
         <Sidebar />
         <div className='main-content-home'>
           <div className='welcome-header'>
-            <p className='welcome-msg'>Welcome {}!</p>
+            <p className='welcome-msg'>Welcome {this.props.userInfo.name}!</p>
             <button className='welcome-msg-btn'>Let's get started</button>
           </div>
           <div>

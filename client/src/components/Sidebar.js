@@ -5,6 +5,8 @@ import SidebarContent from './SidebarContent';
 import SignOutIcon from '@material-ui/icons/ExitToApp';
 import { Link } from 'react-router-dom';
 import logoSmall from '../images/logo-small.png';
+import { connect } from 'react-redux';
+import { settingsActions } from '../actions';
 
 class Sidebar extends React.Component {
   constructor(props) {
@@ -31,9 +33,11 @@ class Sidebar extends React.Component {
   }
 
   render() {
+    console.log('HEEEEEEEJ: ', this.props.open);
+
     return (
-      <div>
-        <div id='sidebar' className='sidebar-sidebar'>
+      <div className='sidebar-sidebar-container'>
+        <div id='sidebar' className={'sidebar-sidebar ' + (this.props.open ? 'open' : 'hidden')}>
           <SidebarContent />
         </div>
         <div className='sidebar-content'>
@@ -47,7 +51,7 @@ class Sidebar extends React.Component {
               <button
                 className='button-item-button'
                 onClick={() => {
-                  this.toggleSidebar();
+                  this.props.toggleSidebar();
                 }}
               >
                 <MenuIcon className='button-menu-icon' fontSize='large' />
@@ -65,5 +69,14 @@ class Sidebar extends React.Component {
     );
   }
 }
+const mapStateToProps = (state) => {
+  return { open: state.settings.open };
+};
 
-export default Sidebar;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    toggleSidebar: () => dispatch({ type: settingsActions.TOGGLE_SIDEBAR_ACTION }),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);

@@ -1,7 +1,7 @@
 import firebaseApp from './firebase';
 
 //Reducer: a function that contains the state for the application (higher order funcs)
-import { userActions, collectionActions } from './actions';
+import { userActions, collectionActions, settingsActions } from './actions';
 import { auth } from 'firebase';
 
 export function userReducer(state = { email: null, name: 'hadla', userId: null }, action) {
@@ -32,4 +32,12 @@ export function collectionReducer(state = [], action) {
     default:
       return state;
   }
+}
+
+export function toggleSidebar(state = { open: true }, action) {
+  switch (action.type) {
+    case settingsActions.TOGGLE_SIDEBAR_ACTION:
+      return { open: !state.open };
+  }
+  return state;
 }

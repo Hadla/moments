@@ -5,6 +5,10 @@ export const userActions = {
   SET_USER_INFO_ACTION: 'SET_USER_INFO_ACTION',
   SET_LOGIN_INFO_ACTION: 'SET_LOGIN_INFO_ACTION',
 };
+// Regarding settingsActions
+export const settingsActions = {
+  TOGGLE_SIDEBAR_ACTION: 'TOGGLE_SIDEBAR_ACTION',
+};
 
 // Actions regarding collection
 export const collectionActions = {

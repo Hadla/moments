@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import CheckboxAlert from './CheckboxAlert';
 import firebaseApp from '../firebase';
+import { connect } from 'react-redux';
+import '../App.css';
 
 class SignUpForm extends Component {
   constructor() {
@@ -12,6 +14,7 @@ class SignUpForm extends Component {
       password: '',
       name: '',
       hasAgreed: false,
+      displayErr: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -32,7 +35,6 @@ class SignUpForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    let fbDBRef = firebaseApp.database().ref('users');
     firebaseApp
       .auth()
       .createUserWithEmailAndPassword(this.state.email, this.state.password)
@@ -47,15 +49,21 @@ class SignUpForm extends Component {
             if (e) console.log(e);
           });
       })
-      .catch(console.log);
+      .catch(
+        function () {
+          this.setState({ displayErr: true });
+        }.bind(this)
+      );
 
     console.log('The form was submitted with the following data:');
     console.log(this.state);
   }
 
   render() {
-    console.log(this.props);
-    return (
+    console.log('PROPS: ', this.props);
+    return this.props.userInfo.email ? (
+      <Redirect to='/home' push={true} />
+    ) : (
       <div className='FormCenter'>
         <form onSubmit={this.handleSubmit} className='FormFields'>
           <div className='FormField'>
@@ -99,6 +107,16 @@ class SignUpForm extends Component {
               value={this.state.email}
               onChange={this.handleChange}
             />
+            <div
+              className='SUF-err-msg'
+              style={{
+                color: 'fireBrick',
+                fontWeight: '400',
+                visibility: this.state.displayErr ? 'visible' : 'hidden',
+              }}
+            >
+              Something went wrong :( check your input
+            </div>
           </div>
 
           <div className='FormField'>
@@ -125,5 +143,8 @@ class SignUpForm extends Component {
     );
   }
 }
+const mapStateToProps = (state) => {
+  return { userInfo: state.loginInfo };
+};
 
-export default SignUpForm;
+export default connect(mapStateToProps, null)(SignUpForm);
