@@ -9,6 +9,8 @@ import { Provider } from 'react-redux';
 import { userActions, collectionActions, subscribeToCollectionsAction } from './actions';
 import firebaseApp from './firebase';
 import thunk from 'redux-thunk';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
 const store = createStore(
   combineReducers({
     userInfo: userReducer,

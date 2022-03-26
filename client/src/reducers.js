@@ -34,7 +34,7 @@ export function collectionReducer(state = [], action) {
   }
 }
 
-export function toggleSidebar(state = { open: true }, action) {
+export function toggleSidebar(state = { open: false }, action) {
   switch (action.type) {
     case settingsActions.TOGGLE_SIDEBAR_ACTION:
       return { open: !state.open };

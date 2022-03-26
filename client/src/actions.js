@@ -20,13 +20,18 @@ export const createNewCollectionAction = (collection) => {
   return (dispatch) => {
     console.log('UPLOADING');
     const userId = firebaseApp.auth().currentUser.uid;
-    const uuid = uuidv4();
-    const url = `collections/${userId}/${collection.colName}/${uuid}.png`;
-    firebaseApp.storage().ref(url).put(collection.imageFile);
+    let urls = [];
+    for (let i = 0; i < collection.imageFiles.length; i++) {
+      const uuid = uuidv4();
+      const url = `collections/${userId}/${collection.colName}/${uuid}`;
+      firebaseApp.storage().ref(url).put(collection.imageFiles[i]);
+      urls.push(url);
+      console.log("TYPE?: ", collection.imageFiles[i].type.split("/").pop(), collection.imageFiles[i]);
+    }
     firebaseApp
       .database()
       .ref(`collections/${userId}`)
-      .push({ colName: collection.colName, colDesc: collection.colDesc, imageUrl: url })
+      .push({ colName: collection.colName, colDesc: collection.colDesc, imageUrl: urls })
       .then(() => {
         //Dispatch to show error msg
         //dispatch({type: collectionActions.CREATE_NEW_COLLECTION_SUCCESS, );

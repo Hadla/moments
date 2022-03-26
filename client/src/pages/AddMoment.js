@@ -1,6 +1,7 @@
 import React from 'react';
 import Sidebar from '../components/Sidebar';
-import '../style/addMoment.css';
+import '../style/addMoment.scss';
+import '../style/app.scss';
 import MomentsCollections from '../components/MomentsCollections';
 import getStartedImage from '../images/get-started-image.jpg';
 import { Link } from 'react-router-dom';
@@ -30,11 +31,11 @@ class AddMoment extends React.Component {
 
   render() {
     return (
-      <div className='main-page-add'>
+      <div className='page-container add-moment-app'>
         <Sidebar />
 
-        <div className='main-content-add'>
-          <div className='info-container'>
+        <div className='page-content'>
+          <div className='col get-started'>
             <img className='get-started-image' src={getStartedImage} />
             <p className='text-header'>Get started and create some Moments!</p>
             <p className='text-text'>A picture speaks more than a thousand words. Tell your story!</p>
@@ -42,7 +43,7 @@ class AddMoment extends React.Component {
               <button className='get-started-btn'>Get started</button>
             </Link>
           </div>
-          <div className='collection-preview-container'>
+          <div className='col moments-collection'>
             <MomentsCollections collections={this.testCol} />
           </div>
         </div>

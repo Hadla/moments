@@ -1,14 +1,9 @@
 import React from 'react';
 import Sidebar from '../components/Sidebar';
 import { Link } from 'react-router-dom';
-import '../style/randomMomentsGallery.css';
+import '../style/randomMomentsGallery.scss';
 
 class RandomMomentsGallery extends React.Component {
-  //   constructor(props) {
-  //     super(props);
-  //    this.state = {
-  //     };
-  // }
 
   randomImgDisplayer(image) {
     return (

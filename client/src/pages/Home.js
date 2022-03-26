@@ -30,11 +30,6 @@ class Home extends React.Component {
         colName: 'New York',
       },
       {
-        momentsImg:
-          'https://images.squarespace-cdn.com/content/v1/5672f59f1115e0e8174b184a/1471617595297-1Q56XNYY6HDHBPG2J9B5/ke17ZwdGBToddI8pDm48kFWxnDtCdRm2WA9rXcwtIYR7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UcTSrQkGwCGRqSxozz07hWZrYGYYH8sg4qn8Lpf9k1pYMHPsat2_S1jaQY3SwdyaXg/advertising-children-photographer.jpg?format=2500w',
-        colName: 'Family',
-      },
-      {
         momentsImg: 'https://www.thewanderinglens.com/wp-content/uploads/2018/01/header.jpg',
         colName: 'Paris',
       },
@@ -50,10 +45,6 @@ class Home extends React.Component {
       },
       {
         momentsImg: 'https://i.pinimg.com/originals/41/e1/6b/41e16b152707dea9c4dfac5e3c3290e8.jpg',
-        colName: 'Summer 2019',
-      },
-      {
-        momentsImg: 'https://shutupandgo.travel/app/uploads/2019/04/Balloonbs.jpg',
         colName: 'Summer 2019',
       },
       {
@@ -81,7 +72,9 @@ class Home extends React.Component {
         <div className='main-content-home'>
           <div className='welcome-header'>
             <p className='welcome-msg'>Welcome {this.props.userInfo.name}!</p>
-            <button className='welcome-msg-btn'>Let's get started</button>
+            <Link to='/add-moment'>
+              <button className='welcome-msg-btn'>Let's get started</button>
+            </Link>
           </div>
           <div>
             <RandomMomentsGallery images={this.testCol} />

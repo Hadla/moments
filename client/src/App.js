@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { createStore, combineReducers } from 'redux';
-
 import './App.css';
 import './pages/SignInPage';
 import { PrivateRoute } from './PrivateRoute';

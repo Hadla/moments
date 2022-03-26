@@ -1,0 +1,44 @@
+:root {
+  --a-color: #99d6e0;
+  --b-color: #4261a3;
+  --c-color: #37518a;
+}
+
+.RMG-card-containter {
+  /* margin-left: 2em; */
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-height: 600px;
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+.RMG-card {
+  margin: 5px;
+  margin-top: 0;
+  cursor: pointer;
+}
+.RMG-img-container {
+  width: 200px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.RMG-img {
+  position: relative;
+  transition: transform 1s;
+  width: 200px;
+  max-height: 100%;
+}
+.RMG-card:hover {
+  .RMG-img {
+    transform: scale(1.05);
+    z-index: 1;
+  }
+}
+.RMG-col-name {
+  margin-top: -2px;
+  margin-bottom: 2px;
+  opacity: 0.7;
+  font-weight: 300;
+}

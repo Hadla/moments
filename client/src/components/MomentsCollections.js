@@ -1,7 +1,8 @@
 import React from 'react';
 import Sidebar from '../components/Sidebar';
 import AddCollectionButton from '../components/AddCollectionButton';
-import '../style/addMoment.css';
+import '../style/addMoment.scss';
+import '../style/app.scss';
 
 class MomentsCollections extends React.Component {
   collectionItem(collection) {
@@ -17,12 +18,10 @@ class MomentsCollections extends React.Component {
 
   render() {
     return (
-      <div>
-        <div className='collection-previews-container'>
+        <div className='collection-preview-container'>
           <AddCollectionButton />
           {this.props.collections.map(this.collectionItem)}
         </div>
-      </div>
     );
   }
 }
