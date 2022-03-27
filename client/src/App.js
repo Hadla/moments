@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { createStore, combineReducers } from 'redux';
 import './App.css';
 import './pages/SignInPage';
 import { PrivateRoute } from './PrivateRoute';
@@ -10,15 +9,12 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import AddMoment from './pages/AddMoment';
 import firebaseApp from './firebase';
 import CreateCollection from './pages/CreateCollection';
-import { subscribeToCollectionsAction, userActions } from './actions';
+import { setCollectionsAction, userActions } from './actions';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-  }
+
   componentDidMount() {
     firebaseApp.auth().onAuthStateChanged((state) => {
-      console.log(state);
       this.props.store.dispatch({
         type: userActions.SET_LOGIN_INFO_ACTION,
         payload: {
@@ -31,7 +27,6 @@ class App extends Component {
         .database()
         .ref(`users/${state.uid}`)
         .on('value', (snap) => {
-          console.log('CALLBACK KÖRS:', snap.val());
           this.props.store.dispatch({
             type: userActions.SET_USER_INFO_ACTION,
             payload: {
@@ -39,8 +34,26 @@ class App extends Component {
             },
           });
         });
+        this.props.store.dispatch(setCollectionsAction());
+        // firebaseApp
+        // .database()
+        // .ref(`collections/${state.uid}`)
+        // .on('value', (snap) => {
+        //   const allCollections = [];
+        //   snap.forEach((childSnap) => {
+        //     allCollections.push({
+        //       id: childSnap.key,
+        //       ...childSnap.val()
+        //     });
+        //     this.props.store.dispatch({
+        //       type: collectionActions.SET_COLLECTIONS_ACTION,
+        //       payload: allCollections,
+        //     })
+        //   });
+        //   // console.log('COLLECTIONS:', snap.val(), "KEYYYYY: ", snap.key);
+        //   console.log('Object? App.js:', allCollections);
+        // })
 
-      this.props.store.dispatch(subscribeToCollectionsAction());
     });
   }
   render() {

@@ -1,10 +1,8 @@
-import firebaseApp from './firebase';
 
 //Reducer: a function that contains the state for the application (higher order funcs)
 import { userActions, collectionActions, settingsActions } from './actions';
-import { auth } from 'firebase';
 
-export function userReducer(state = { email: null, name: 'hadla', userId: null }, action) {
+export function userReducer(state = { email: null, name: '', userId: null }, action) {
   switch (action.type) {
     case userActions.SET_USER_INFO_ACTION:
       //Return new state
@@ -14,7 +12,7 @@ export function userReducer(state = { email: null, name: 'hadla', userId: null }
       return state;
   }
 }
-export function loginReducer(state = { email: null, name: 'hadla', userId: null }, action) {
+export function loginReducer(state = { email: null, name: '', userId: null }, action) {
   if (action.type === userActions.SET_LOGIN_INFO_ACTION) {
     return action.payload;
   }
@@ -26,9 +24,7 @@ export function collectionReducer(state = [], action) {
     case collectionActions.CREATE_NEW_COLLECTION_SUCCESS:
       return state;
     case collectionActions.SET_COLLECTIONS_ACTION:
-      console.log('New state: ', action.payload);
-
-    // return state;
+      return action.payload;
     default:
       return state;
   }
@@ -38,6 +34,7 @@ export function toggleSidebar(state = { open: false }, action) {
   switch (action.type) {
     case settingsActions.TOGGLE_SIDEBAR_ACTION:
       return { open: !state.open };
+    default:
+      return state;
   }
-  return state;
 }

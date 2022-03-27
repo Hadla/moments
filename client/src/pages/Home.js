@@ -1,10 +1,6 @@
 import React from 'react';
 import Sidebar from '../components/Sidebar';
-import Start from '../components/Start';
-import LogoutButton from '../components/LogoutButton';
-import { LinearProgress } from '@material-ui/core';
 import { Link } from 'react-router-dom';
-import firebaseApp from '../firebase';
 import '../style/home.css';
 import RandomMomentsGallery from '../components/RandomMomentsGallery';
 import { connect } from 'react-redux';
@@ -86,6 +82,7 @@ class Home extends React.Component {
 }
 
 const mapStateToProps = (state) => {
+  console.log("HOME - State: ", state.userInfo)
   return { userInfo: state.userInfo };
 };
 

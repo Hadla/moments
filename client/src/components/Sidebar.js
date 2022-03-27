@@ -33,8 +33,6 @@ class Sidebar extends React.Component {
   }
 
   render() {
-    console.log('HEEEEEEEJ: ', this.props.open);
-
     return (
       <div className='sidebar-sidebar-container'>
         <div id='sidebar' className={'sidebar-sidebar ' + (this.props.open ? 'open' : 'hidden')}>
@@ -44,7 +42,7 @@ class Sidebar extends React.Component {
           <div className='button-menu'>
             <div className='button-item'>
               <Link to='/home'>
-                <img className='logo-home-button' src={logoSmall} />
+                <img className='logo-home-button' alt="logo" src={logoSmall} />
               </Link>
             </div>
             <div className='button-item'>

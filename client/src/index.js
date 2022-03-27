@@ -6,8 +6,6 @@ import * as serviceWorker from './serviceWorker';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { userReducer, loginReducer, collectionReducer, toggleSidebar } from './reducers';
 import { Provider } from 'react-redux';
-import { userActions, collectionActions, subscribeToCollectionsAction } from './actions';
-import firebaseApp from './firebase';
 import thunk from 'redux-thunk';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 

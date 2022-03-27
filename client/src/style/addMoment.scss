@@ -74,7 +74,7 @@
     margin: 0 0 var(--standard-margin) var(--standard-margin);
     background-color: var(--c-color);
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
   }
   .collection-cover-container {
     overflow: hidden;

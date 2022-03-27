@@ -2,7 +2,7 @@ import React from 'react';
 import Sidebar from '../components/Sidebar';
 import '../style/app.scss';
 import '../style/createCollection.scss';
-import { collectionActions, createNewCollectionAction } from '../actions';
+import { createNewCollectionAction } from '../actions';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import UploadIcon from '@material-ui/icons/Publish';
@@ -57,7 +57,7 @@ class createCollection extends React.Component {
       <div className=''>
       <div className='selected-image-container'>
         {imageData.slice(0, previewLimit).map((url, key) => (
-          <img key={key} className='selected-image' src={url} />
+          <img key={key} alt="preview" className='selected-image' src={url} />
         ))}
       </div>
         {imageData.length > previewLimit && <div className='preview-limit-reached'><p>and {imageData.length - previewLimit} more...</p></div>}
@@ -66,7 +66,7 @@ class createCollection extends React.Component {
   }
 
   render() {
-    const { colName, colDesc, imageData, imageFiles } = this.state;
+    const { colName, colDesc, imageFiles } = this.state;
     return (
       <div className='page-container create-collection-app'>
         <Sidebar />

@@ -11,7 +11,6 @@ import defaultProfileImg from '../images/default-profile-image.png';
 
 import '../style/sidebarContent.css';
 import LogoutButton from '../components/LogoutButton';
-import firebaseApp from '../firebase';
 import { connect } from 'react-redux';
 
 class sidebarContent extends React.Component {
@@ -38,10 +37,10 @@ class sidebarContent extends React.Component {
   render() {
     return (
       <div className='sidebar-content-root'>
-        <img className='sidebar-logo' src={logo} />
+        <img className='sidebar-logo' alt="logo" src={logo} />
         <div className='profile-component'>
           <div className='profile-image-circle'>
-            <img className='profile-image' src={defaultProfileImg} />
+            <img className='profile-image' alt="Profile pictute" src={defaultProfileImg} />
           </div>
           <div className='profile-name-parent'>
             <p className='profile-name'>{this.props.userInfo.name}</p>

@@ -1,5 +1,5 @@
-import React, { useContext, useState } from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Route } from 'react-router-dom';
 import firebaseApp from './firebase';
 import SignInPage from './pages/SignInPage';
 

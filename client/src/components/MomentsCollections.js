@@ -1,27 +1,23 @@
 import React from 'react';
-import Sidebar from '../components/Sidebar';
 import AddCollectionButton from '../components/AddCollectionButton';
 import '../style/addMoment.scss';
 import '../style/app.scss';
 
 class MomentsCollections extends React.Component {
-  collectionItem(collection) {
-    return (
-      <div className='collection-preview'>
-        <div className='collection-cover-container'>
-          <img className='collection-cover' src={collection.coverImgUrl} />
-        </div>
-        <p className='collection-name'>{collection.name}</p>
-      </div>
-    );
-  }
 
   render() {
     return (
-        <div className='collection-preview-container'>
-          <AddCollectionButton />
-          {this.props.collections.map(this.collectionItem)}
-        </div>
+      <div className='collection-preview-container'>
+        <AddCollectionButton />
+        {
+          this.props.collectionInfo.slice(0, 3).map(item => <div className='collection-preview'>
+            <div className='collection-cover-container'>
+              <img className='collection-cover' alt={`Cover for ${item.colName}`} src={item.imageData[0]} />
+            </div>
+            <p className='collection-name'>{item.colName}</p>
+          </div>)
+        }
+      </div>
     );
   }
 }
