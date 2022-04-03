@@ -1,0 +1,33 @@
+.images_container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    .image_wrapper {
+        overflow: hidden;
+        // border: 1px solid black;
+        margin: 0 1rem 4rem 0;
+        .edit_description {
+            display: flex;
+            flex-direction: row;
+            input {
+                border: none;
+            }
+            input:focus {
+                // background-color: pink !important;
+            }
+        }
+        img {
+            height: 200px;
+            margin-bottom: 0.5rem;
+        }
+        button {
+            all: unset;
+            cursor: pointer;
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+}

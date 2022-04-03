@@ -13,30 +13,44 @@ export const settingsActions = {
 // Actions regarding collection
 export const collectionActions = {
   SET_COLLECTIONS_ACTION: 'SET_COLLECTIONS_ACTION',
+  UPDATE_COLLECTIONS_ACTION: 'UPDATE_COLLECTIONS_ACTION',
   CREATE_NEW_COLLECTION_SUCCESS: 'CREATE_NEW_COLLECTION_SUCCESS',
 };
 
 export const createNewCollectionAction = (collection) => {
   return (dispatch) => {
-    console.log('UPLOADING');
     const userId = firebaseApp.auth().currentUser.uid;
-    let urls = [];
-    let imageUrls = [];
+    let images = [];
     for (let i = 0; i < collection.imageFiles.length; i++) {
       const uuid = uuidv4();
       const url = `collections/${userId}/${collection.colName}/${uuid}`;
       firebaseApp.storage().ref(url).put(collection.imageFiles[i]);
-      urls.push(url);
-      imageUrls.push(collection.imageData[i]);
-      // console.log("TYPE?: ", collection.imageFiles[i].type.split("/").pop(), collection.imageFiles[i]);
+      images.push({ id: uuid, imagePath: url, imageSrc: collection.imageData[i], text: "" });
     }
     firebaseApp
       .database()
       .ref(`collections/${userId}`)
-      .push({ colName: collection.colName, colDesc: collection.colDesc, imageUrl: urls, imageData: imageUrls })
+      .push({ colName: collection.colName, colDesc: collection.colDesc, images: images })
       .then(() => {
         //Dispatch to show error msg
         dispatch({ type: collectionActions.CREATE_NEW_COLLECTION_SUCCESS });
+      });
+  };
+};
+export const updateCollectionAction = (collection, selectedImage, index) => {
+  return (dispatch) => {
+    const userId = firebaseApp.auth().currentUser.uid;
+    const url = `collections/${userId}/${collection.id}/images/${index}/text`;
+    console.log('UPDATING', collection);
+    
+    // images.push({ id: uuid, imagePath: url, imageSrc: collection.imageData[i], text: "" });
+    firebaseApp
+      .database()
+      .ref(url)
+      .set(selectedImage)
+      .then(() => {
+        //Dispatch to show error msg
+        dispatch({ type: collectionActions.UPDATE_COLLECTIONS_ACTION });
       });
   };
 };
@@ -56,12 +70,13 @@ export const setCollectionsAction = () => {
     fb.on('value', (snap) => {
       const allCollections = [];
       snap.forEach((childSnap) => {
-        // console.log("SnapCHILD: ", childSnap.val(), childSnap.key);
+        console.log("SnapCHILD: ", childSnap, childSnap.val(), childSnap.key);
         allCollections.push({
           id: childSnap.key,
           ...childSnap.val()
         });
       });
+      console.log("allCollections: ", allCollections);
       dispatch({
         type: collectionActions.SET_COLLECTIONS_ACTION,
         payload: allCollections || [],

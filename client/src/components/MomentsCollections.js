@@ -6,10 +6,11 @@ import '../style/app.scss';
 class MomentsCollections extends React.Component {
 
   render() {
+    console.log("this.props.collectionInfo: ", this.props.collectionInfo);
     return (
       <div className='collection-preview-container'>
         <AddCollectionButton />
-        {
+        { this.props.collectionInfo &&
           this.props.collectionInfo.slice(0, 3).map(item => <div className='collection-preview'>
             <div className='collection-cover-container'>
               <img className='collection-cover' alt={`Cover for ${item.colName}`} src={item.imageData[0]} />

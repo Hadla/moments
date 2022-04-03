@@ -3,42 +3,57 @@
   --b-color: #4261a3;
   --c-color: #37518a;
 }
+.random-moments-gallery {
+  max-width: 1100px;
+  margin: 0 auto;
+}
 
 .RMG-card-containter {
-  /* margin-left: 2em; */
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  max-height: 600px;
-  max-width: 1050px;
   margin: 0 auto;
 }
 
 .RMG-card {
-  margin: 5px;
+  margin: 0.5rem;
   margin-top: 0;
   cursor: pointer;
-}
-.RMG-img-container {
-  width: 200px;
-  border-radius: 5px;
-  overflow: hidden;
-}
-.RMG-img {
-  position: relative;
-  transition: transform 1s;
-  width: 200px;
-  max-height: 100%;
-}
-.RMG-card:hover {
-  .RMG-img {
-    transform: scale(1.05);
-    z-index: 1;
-  }
+  width: calc(100% - 1rem);
 }
 .RMG-col-name {
   margin-top: -2px;
   margin-bottom: 2px;
   opacity: 0.7;
   font-weight: 300;
+}
+.RMG-img-container {
+  position: relative;
+  width: 100%;
+  border-radius: 5px;
+  overflow: hidden;
+  .RMG-col-description {
+    position: absolute;
+    top: -10rem;
+    left: 0;
+    padding: 0.5rem 0.75rem 0;
+    width: 100%;
+    z-index: 2;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 11px 17px 10px rgba(0, 0, 0, 0.3);
+    transition: top 0.75s ease-in-out;
+  }
+  .RMG-img {
+    position: relative;
+    transition: transform 1s;
+    width: 100%;
+    max-height: 100%;
+  }
+}
+.RMG-card:hover {
+  .RMG-img {
+    transform: scale(1.05);
+    z-index: 1;
+  }
+  .RMG-col-description {
+    top: 0;
+  }
 }

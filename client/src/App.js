@@ -10,6 +10,7 @@ import AddMoment from './pages/AddMoment';
 import firebaseApp from './firebase';
 import CreateCollection from './pages/CreateCollection';
 import { setCollectionsAction, userActions } from './actions';
+import Showcase from './pages/Showcase';
 
 class App extends Component {
 
@@ -67,6 +68,7 @@ class App extends Component {
               <PrivateRoute exact path='/home' component={Home} />
               <PrivateRoute exact path='/add-moment' component={AddMoment} />
               <PrivateRoute exact path='/create-collection' component={CreateCollection} />
+              <PrivateRoute exact path={`/showcase`} component={Showcase} />
             </Switch>
           </BrowserRouter>
         </div>
@@ -74,5 +76,6 @@ class App extends Component {
     );
   }
 }
+
 
 export default App;

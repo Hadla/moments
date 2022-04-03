@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 import logo from '../images/logo-white.png';
 import defaultProfileImg from '../images/default-profile-image.png';
 
-import '../style/sidebarContent.css';
+import '../style/sidebarContent.scss';
 import LogoutButton from '../components/LogoutButton';
 import { connect } from 'react-redux';
 
@@ -48,36 +48,11 @@ class sidebarContent extends React.Component {
         </div>
         <div className='sidebar-menu'>
           <h3 className='menu-title'>Menu</h3>
-          <div className='menu-item'>
-            <HomeIcon fontSize='small' className='menu-icon' />
-            <Link className='remove-default-link-styling' to='/home'>
-              <p className='menu-text'>Home</p>
-            </Link>
-          </div>
-          <div className='menu-item'>
-            <AddMomentIcon fontSize='small' className='menu-icon' />
-            <Link className='remove-default-link-styling' to='/add-moment'>
-              <p className='menu-text'>Add Moment</p>
-            </Link>
-          </div>
-          <div className='menu-item'>
-            <MomentsIcon fontSize='small' className='menu-icon' />
-            <Link className='remove-default-link-styling' to='my-moments'>
-              <p className='menu-text'>My Moments</p>
-            </Link>
-          </div>
-          <div className='menu-item'>
-            <ShareIcon fontSize='small' className='menu-icon' />
-            <Link className='remove-default-link-styling' to='shared-moments'>
-              <p className='menu-text'>Shared Moments</p>
-            </Link>
-          </div>
-          <div className='menu-item'>
-            <SettingsIcon fontSize='small' className='menu-icon' />
-            <Link className='remove-default-link-styling' to='settings'>
-              <p className='menu-text'>Settings</p>
-            </Link>
-          </div>
+          <Link className='menu-item' to='/home'><HomeIcon fontSize='small' className='menu-icon' />Home</Link>
+          <Link className='menu-item' to='/add-moment'><AddMomentIcon fontSize='small' className='menu-icon' />Add Moment</Link>
+          <Link className='menu-item' to='my-moments'><MomentsIcon fontSize='small' className='menu-icon' />My Moments</Link>
+          <Link className='menu-item' to='shared-moments'><ShareIcon fontSize='small' className='menu-icon' />Shared Moments</Link>
+          <Link className='menu-item' to='settings'><SettingsIcon fontSize='small' className='menu-icon' />Settings</Link>
           <div className='menu-item'>
             <LogoutButton className='log-out-btn-SC' />
           </div>

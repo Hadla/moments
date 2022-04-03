@@ -47,7 +47,9 @@
 .sidebar-menu {
   margin-left: 15%;
   margin-top: 2em;
-  line-height: 0.5em;
+  // line-height: 0.5em;
+  display: flex;
+  flex-direction: column;
 }
 .menu-title {
   font-weight: 400;
@@ -57,21 +59,19 @@
 .menu-icon {
   display: flex;
   justify-content: center;
-  margin-top: 0.348em;
   margin-right: 0.2em;
 }
 
 .menu-item {
+  text-decoration: none;
+  color: white !important;
   display: flex;
-  flex-direction: row;
+    margin-bottom: 0.5rem;
 }
 .menu-text {
   font-size: 1em;
   font-weight: 350;
   color: white;
-}
-.remove-default-link-styling {
-  text-decoration: none;
 }
 
 .log-out-btn-SC {

@@ -17,14 +17,6 @@ class Sidebar extends React.Component {
   }
 
   toggleSidebar() {
-    console.log('sdkjhs');
-    if (this.state.open) {
-      this.sidebarRef.classList.add('hidden');
-      this.sidebarRef.classList.remove('open');
-    } else {
-      this.sidebarRef.classList.add('open');
-      this.sidebarRef.classList.remove('hidden');
-    }
     this.setState({ ...this.state, open: !this.state.open });
   }
 

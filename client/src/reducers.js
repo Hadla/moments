@@ -25,6 +25,8 @@ export function collectionReducer(state = [], action) {
       return state;
     case collectionActions.SET_COLLECTIONS_ACTION:
       return action.payload;
+    case collectionActions.UPDATE_COLLECTIONS_ACTION:
+      return state;
     default:
       return state;
   }

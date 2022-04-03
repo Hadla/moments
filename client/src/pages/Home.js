@@ -2,8 +2,10 @@ import React from 'react';
 import Sidebar from '../components/Sidebar';
 import { Link } from 'react-router-dom';
 import '../style/home.css';
+import '../style/app.scss';
 import RandomMomentsGallery from '../components/RandomMomentsGallery';
 import { connect } from 'react-redux';
+import Showcase from './Showcase';
 
 class Home extends React.Component {
   constructor(props) {
@@ -63,9 +65,9 @@ class Home extends React.Component {
   render() {
     console.log(this.props);
     return (
-      <div className='main-page-home'>
+      <div className='page-container'>
         <Sidebar />
-        <div className='main-content-home'>
+        <div className='page-content'>
           <div className='welcome-header'>
             <p className='welcome-msg'>Welcome {this.props.userInfo.name}!</p>
             <Link to='/add-moment'>
@@ -73,7 +75,8 @@ class Home extends React.Component {
             </Link>
           </div>
           <div>
-            <RandomMomentsGallery images={this.testCol} />
+            {/* <RandomMomentsGallery images={this.testCol} /> */}
+            <RandomMomentsGallery collections={this.props.collectionInfo} />
           </div>
         </div>
       </div>
@@ -82,8 +85,7 @@ class Home extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log("HOME - State: ", state.userInfo)
-  return { userInfo: state.userInfo };
+  return { userInfo: state.userInfo, collectionInfo: state.collectionInfo };
 };
 
 export default connect(mapStateToProps, null)(Home);

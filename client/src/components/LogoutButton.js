@@ -10,6 +10,7 @@ const styledButton = {
   outline: 'inherit',
   fontSize: '1em',
   fontWeight: '200',
+  padding: 0,
 };
 const iconAndBtn = {
   marginTop: '0.3em',
@@ -23,7 +24,6 @@ const styledIcon = {
 function LogoutButton() {
   return (
     <div style={iconAndBtn}>
-      <SignOutIcon fontSize='small' style={styledIcon} />
       <button
         style={styledButton}
         className='logout-button'
@@ -31,6 +31,7 @@ function LogoutButton() {
           firebaseApp.auth().signOut();
         }}
       >
+        <SignOutIcon className="pr-1" fontSize='small' style={styledIcon} />
         Logout
       </button>
     </div>
