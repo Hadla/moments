@@ -13,6 +13,7 @@
             flex-direction: row;
             input {
                 border: none;
+                width: 100%;
             }
             input:focus {
                 // background-color: pink !important;
@@ -28,6 +29,10 @@
             &:focus {
                 outline: none;
             }
+        }
+        i {
+            color: var(--b-color);
+            font-size: 1.1rem;
         }
     }
 }

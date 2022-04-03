@@ -7,14 +7,14 @@ import { Loading } from '../components/helpers';
 
 
 const Showcase = (props) => {
-
     const [text, setText] = useState("");
     const [edit, setEdit] = useState(false);
 
-    const handleEdit = () => setEdit(!edit);
     const descriptionInput = useRef(null);
     const collectionInfo = props.collectionInfo;
-
+    function handleFocus() {
+        descriptionInput.current.focus()
+    }
     // useEffect(() => {
     //     if (edit) {
     //         descriptionInput.current.focus();
@@ -31,9 +31,10 @@ const Showcase = (props) => {
                         <div className="image_wrapper">
                             <img src={image.imageSrc} />
                             <div className="">
-                                {edit ? <form className="edit_description">
+                                {edit === image.id ? <form className="edit_description">
                                     {/* <button className="pr-1" onClick={() => { descriptionInput.focus(); setEdit(!edit); }}><i class="pr-1 fa-solid fa-xmark"></i></button> */}
-                                    <button className="pr-1" onClick={handleEdit}><i class="pr-1 fa-solid fa-xmark"></i></button>
+                                    <button className="pr-1" onClick={() => { edit !== image.id ? setEdit(image.id) : setEdit("") }}><i className="pr-1 fa-solid fa-xmark"></i></button>
+                                    {/* <button className="pr-1" onClick={handleEdit}><i class="pr-1 fa-solid fa-xmark"></i></button> */}
                                     <input placeholder={image.text !== "" ? image.text : "Add a description"}
                                         ref={descriptionInput}
                                         onChange={(e) => setText(e.target.value)} />
@@ -44,7 +45,7 @@ const Showcase = (props) => {
                                             setEdit(false);
                                         }}><i class="pl-1 fa-solid fa-square-check"></i></button>
                                 </form>
-                                    : <div><button onClick={handleEdit}><i class="pr-1 fa-solid fa-pen-to-square"></i></button>{image.text === "" ? "Add a description" : image.text}</div>}
+                                    : <div><button onClick={() => { edit !== image.id ? setEdit(image.id) : setEdit("") }}><i className="pr-1 fa-solid fa-pen-to-square"></i></button>{image.text === "" ? "Add a description" : image.text}</div>}
                             </div>
                         </div>
                     </div>

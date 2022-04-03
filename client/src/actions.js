@@ -41,9 +41,6 @@ export const updateCollectionAction = (collection, selectedImage, index) => {
   return (dispatch) => {
     const userId = firebaseApp.auth().currentUser.uid;
     const url = `collections/${userId}/${collection.id}/images/${index}/text`;
-    console.log('UPDATING', collection);
-    
-    // images.push({ id: uuid, imagePath: url, imageSrc: collection.imageData[i], text: "" });
     firebaseApp
       .database()
       .ref(url)
@@ -70,13 +67,11 @@ export const setCollectionsAction = () => {
     fb.on('value', (snap) => {
       const allCollections = [];
       snap.forEach((childSnap) => {
-        console.log("SnapCHILD: ", childSnap, childSnap.val(), childSnap.key);
         allCollections.push({
           id: childSnap.key,
           ...childSnap.val()
         });
       });
-      console.log("allCollections: ", allCollections);
       dispatch({
         type: collectionActions.SET_COLLECTIONS_ACTION,
         payload: allCollections || [],
