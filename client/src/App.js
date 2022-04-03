@@ -9,8 +9,10 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import AddMoment from './pages/AddMoment';
 import firebaseApp from './firebase';
 import CreateCollection from './pages/CreateCollection';
-import { setCollectionsAction, userActions } from './actions';
 import Showcase from './pages/Showcase';
+import Settings from './pages/Settings';
+import { setCollectionsAction, userActions } from './actions';
+import Sidebar from './components/Sidebar';
 
 class App extends Component {
 
@@ -35,7 +37,7 @@ class App extends Component {
             },
           });
         });
-        this.props.store.dispatch(setCollectionsAction());
+      this.props.store.dispatch(setCollectionsAction());
     });
   }
   render() {
@@ -49,6 +51,7 @@ class App extends Component {
               <PrivateRoute exact path='/home' component={Home} />
               <PrivateRoute exact path='/add-moment' component={AddMoment} />
               <PrivateRoute exact path='/create-collection' component={CreateCollection} />
+              <PrivateRoute exact path='/settings' component={Settings} />
               <PrivateRoute exact path={`/showcase`} component={Showcase} />
             </Switch>
           </BrowserRouter>

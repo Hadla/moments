@@ -52,7 +52,7 @@ class sidebarContent extends React.Component {
           <Link className='menu-item' to='/add-moment'><AddMomentIcon fontSize='small' className='menu-icon' />Add Moment</Link>
           <Link className='menu-item' to='my-moments'><MomentsIcon fontSize='small' className='menu-icon' />My Moments</Link>
           <Link className='menu-item' to='shared-moments'><ShareIcon fontSize='small' className='menu-icon' />Shared Moments</Link>
-          <Link className='menu-item' to='settings'><SettingsIcon fontSize='small' className='menu-icon' />Settings</Link>
+          <Link className='menu-item' to='/settings'><SettingsIcon fontSize='small' className='menu-icon' />Settings</Link>
           <div className='menu-item'>
             <LogoutButton className='log-out-btn-SC' />
           </div>
