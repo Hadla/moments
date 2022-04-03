@@ -36,25 +36,6 @@ class App extends Component {
           });
         });
         this.props.store.dispatch(setCollectionsAction());
-        // firebaseApp
-        // .database()
-        // .ref(`collections/${state.uid}`)
-        // .on('value', (snap) => {
-        //   const allCollections = [];
-        //   snap.forEach((childSnap) => {
-        //     allCollections.push({
-        //       id: childSnap.key,
-        //       ...childSnap.val()
-        //     });
-        //     this.props.store.dispatch({
-        //       type: collectionActions.SET_COLLECTIONS_ACTION,
-        //       payload: allCollections,
-        //     })
-        //   });
-        //   // console.log('COLLECTIONS:', snap.val(), "KEYYYYY: ", snap.key);
-        //   console.log('Object? App.js:', allCollections);
-        // })
-
     });
   }
   render() {

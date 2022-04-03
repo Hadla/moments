@@ -1,13 +1,17 @@
+.collection_name {
+
+
+}
 .images_container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 1rem 2rem;
+    padding: 1rem 0;
     .image_wrapper {
         overflow: hidden;
-        // border: 1px solid black;
-        margin: 0 1rem 4rem 0;
+        width: 30%;
+        margin: 0 1rem 2.5rem 0;
         .edit_description {
             display: flex;
             flex-direction: row;
